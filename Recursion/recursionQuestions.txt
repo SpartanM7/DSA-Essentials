@@ -1,0 +1,4 @@
+Coin exchange -> min number of coins used to generate another sum
+No. of max rods created from another rods
+House RObbery 1
+Sum of non-adjacents values in an array
