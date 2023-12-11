@@ -1,1 +1,4 @@
 /DSA Essentials.code-workspace
+
+# ignoring all the build files
+*.exe
