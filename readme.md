@@ -1,1 +1,1 @@
-## This is my first repository that holds all my codes during learning DSA.
+## This is the repository that holds all my codes during learning DSA.
