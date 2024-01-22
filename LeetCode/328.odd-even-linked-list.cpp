@@ -15,6 +15,11 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+/* This question can have 2 solutions 
+    1. calculating no. of 0s, 1s, and 2s and then replacing the data
+    2. creating 3 different LL for all the 3 no. and connecting them afterwards
+*/
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
