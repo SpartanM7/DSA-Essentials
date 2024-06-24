@@ -10,12 +10,12 @@ class Node{
     Node* prev;
 
     public:
-    Node(int value1, Node* next1 ,Node* prev1){
+    Node(int value1, Node* next1 ,Node* prev1){ // if value , next pointer and prev pointer is given
         this->value = value1;
         this->next = next1;
         this->prev = prev1;
     }
-    Node(int value1){
+    Node(int value1){ // if just value is given
         this->value = value1;
         this->next = nullptr;
         this->prev = nullptr;

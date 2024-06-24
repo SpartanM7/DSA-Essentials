@@ -58,6 +58,40 @@ class Solution{
         return left;
     }
 
+    int MAH(vector<int>& a){
+        stack<int> s;
+        vector<int> right(a.size(), a.size());
+        vector<int> left(a.size(), -1);
+        vector<int> area(a.size());
+
+        // Greatest smaller to left
+        for(int i = 0; i < a.size(); i++){
+            while(!s.empty() && a[s.top()] >= a[i]){
+                s.pop();
+            }
+            if(!s.empty()){
+                left[i] = s.top();
+            }
+            s.push(i);
+        }
+        s = stack<int>();
+        
+        //Greater smaller to right
+        for(int i = a.size()-1; i >= 0;  i--){
+            while(!s.empty() && a[s.top()] >= a[i]){
+                s.pop();
+            }
+            if(!s.empty()){
+                right[i] = s.top();
+            }
+            s.push(i);
+        }
+        for(int i = 0; i < a.size(); i++){
+            area[i] = a[i] * (right[i] - left[i] -1);
+        }
+        return  *max_element(area.begin(), area.end());
+    }
+
 };
 
 int main()
@@ -65,12 +99,14 @@ int main()
     vector<int> a = {6,2,5,4,5,1,6}; // test case
     int psuedoEnd;
     Solution s; //creating an instance of the class
-    vector<int> right = s.NSR(a, psuedoEnd); //right limit vector
-    vector<int> left = s.NSL(a, psuedoEnd); // left limit vector
-    vector<int> ans(a.size()); // why? -> cuz we are using the index of an empty vector with no elements
-    for(int i = 0; i < a.size() ; i++){
-        ans[i] = a[i] * (right[i] - left[i] -1);
-        cout << ans[i] << " ";
-    }
+    // vector<int> right = s.NSR(a, psuedoEnd); //right limit vector
+    // vector<int> left = s.NSL(a, psuedoEnd); // left limit vector
+    // vector<int> ans(a.size()); // why? -> cuz we are using the index of an empty vector with no elements
+    // for(int i = 0; i < a.size() ; i++){
+    //     ans[i] = a[i] * (right[i] - left[i] -1);
+    //     cout << ans[i] << " ";
+    // }
+    // cout << "\n" << *max_element(ans.begin() , ans.end());
+    cout<< s.MAH(a) << endl;
     return 0;
 }
